@@ -1,0 +1,108 @@
+/* ============================================
+   Theme: Neon Cyberpunk
+   Dark background, bright neon glows, futuristic
+   ============================================ */
+
+:root {
+  --color-primary: #00f0ff;
+  --color-secondary: #ff00e5;
+  --color-accent: #39ff14;
+  --color-bg: #0a0a0f;
+  --color-text: #e0e0ff;
+  --color-chat-bg: rgba(10, 10, 15, 0.9);
+  --color-alert-bg: rgba(0, 240, 255, 0.15);
+}
+
+.top-bar {
+  background: linear-gradient(90deg, rgba(0, 240, 255, 0.15), rgba(255, 0, 229, 0.15));
+  border-bottom: 1px solid var(--color-primary);
+  box-shadow: 0 2px 20px rgba(0, 240, 255, 0.3);
+}
+
+.bottom-bar {
+  background: linear-gradient(90deg, rgba(255, 0, 229, 0.15), rgba(0, 240, 255, 0.15));
+  border-top: 1px solid var(--color-secondary);
+  box-shadow: 0 -2px 20px rgba(255, 0, 229, 0.3);
+}
+
+.top-bar .streamer-name {
+  text-shadow: 0 0 10px var(--color-primary), 0 0 20px var(--color-primary);
+  color: var(--color-primary);
+}
+
+.webcam-frame {
+  border-color: var(--color-primary);
+  border-radius: 0;
+  box-shadow:
+    0 0 10px var(--color-primary),
+    0 0 20px rgba(0, 240, 255, 0.3),
+    inset 0 0 10px rgba(0, 240, 255, 0.1);
+  animation: neonGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes neonGlow {
+  0% { box-shadow: 0 0 10px var(--color-primary), 0 0 20px rgba(0, 240, 255, 0.3); }
+  100% { box-shadow: 0 0 15px var(--color-primary), 0 0 30px rgba(0, 240, 255, 0.5), 0 0 45px rgba(0, 240, 255, 0.2); }
+}
+
+.widget {
+  border-color: var(--color-primary);
+  border-radius: 0;
+  background: rgba(0, 240, 255, 0.05);
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
+}
+
+.widget-title {
+  color: var(--color-primary);
+  text-shadow: 0 0 5px var(--color-primary);
+}
+
+.alert-content {
+  border-color: var(--color-primary);
+  border-radius: 0;
+  background: rgba(10, 10, 15, 0.95);
+  box-shadow:
+    0 0 20px var(--color-primary),
+    0 0 40px rgba(0, 240, 255, 0.3),
+    inset 0 0 20px rgba(0, 240, 255, 0.05);
+}
+
+.alert-title {
+  color: var(--color-primary);
+  text-shadow: 0 0 10px var(--color-primary), 0 0 20px var(--color-primary);
+}
+
+.goal-fill {
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  box-shadow: 0 0 10px var(--color-primary);
+}
+
+.social-item {
+  border-color: rgba(0, 240, 255, 0.3);
+  border-radius: 0;
+}
+
+.corner-decor::before,
+.corner-decor::after {
+  background: var(--color-primary);
+  box-shadow: 0 0 10px var(--color-primary);
+}
+
+.chat-header {
+  border-bottom-color: var(--color-primary);
+  box-shadow: 0 2px 10px rgba(0, 240, 255, 0.2);
+}
+
+.chat-message:hover {
+  background: rgba(0, 240, 255, 0.05);
+}
+
+.ticker-item .label {
+  color: var(--color-primary);
+  text-shadow: 0 0 5px var(--color-primary);
+}
+
+.live-dot {
+  background: var(--color-accent);
+  box-shadow: 0 0 5px var(--color-accent), 0 0 10px var(--color-accent);
+}

@@ -1,0 +1,286 @@
+/* ============================================
+   Main Overlay Styles
+   ============================================ */
+
+.overlay-container {
+  width: 1920px;
+  height: 1080px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* --- Top Bar --- */
+.top-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: linear-gradient(135deg, var(--color-primary), rgba(0, 0, 0, 0.7));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  z-index: 10;
+  animation: slideInTop 0.6s ease-out;
+}
+
+.top-bar .streamer-name {
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.top-bar .stream-title {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.top-bar .live-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.live-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ff0000;
+  animation: pulse 1.5s infinite;
+}
+
+/* --- Bottom Bar --- */
+.bottom-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 44px;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), var(--color-primary));
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  z-index: 10;
+  animation: slideInBottom 0.6s ease-out;
+}
+
+.ticker-wrap {
+  width: 100%;
+  overflow: hidden;
+}
+
+.ticker {
+  display: flex;
+  gap: 48px;
+  animation: ticker 30s linear infinite;
+  white-space: nowrap;
+}
+
+.ticker-item {
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ticker-item .label {
+  color: var(--color-secondary);
+  font-weight: 700;
+}
+
+@keyframes ticker {
+  from { transform: translateX(100%); }
+  to { transform: translateX(-100%); }
+}
+
+/* --- Webcam Frame --- */
+.webcam-frame {
+  position: absolute;
+  z-index: 5;
+  border: 3px solid var(--color-primary);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(100, 65, 165, 0.4), 0 4px 20px rgba(0, 0, 0, 0.5);
+  animation: fadeIn 0.8s ease-out;
+}
+
+.webcam-frame.bottom-left {
+  bottom: 60px;
+  left: 24px;
+}
+
+.webcam-frame.bottom-right {
+  bottom: 60px;
+  right: 24px;
+}
+
+.webcam-frame.top-left {
+  top: 60px;
+  left: 24px;
+}
+
+.webcam-frame.top-right {
+  top: 60px;
+  right: 24px;
+}
+
+.webcam-inner {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  opacity: 0.5;
+}
+
+.webcam-frame .name-tag {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  padding: 16px 12px 8px;
+  text-align: center;
+}
+
+.webcam-frame .name-tag .name {
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* --- Social Bar --- */
+.social-bar {
+  position: absolute;
+  left: 24px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  animation: slideInLeft 0.8s ease-out;
+}
+
+.social-bar.middle-left {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.social-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  transition: transform var(--transition-speed), background var(--transition-speed);
+}
+
+.social-item .social-icon {
+  font-size: 14px;
+  width: 20px;
+  text-align: center;
+}
+
+/* --- Corner Decorations --- */
+.corner-decor {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  z-index: 3;
+}
+
+.corner-decor::before,
+.corner-decor::after {
+  content: '';
+  position: absolute;
+  background: var(--color-primary);
+}
+
+.corner-decor.top-left {
+  top: 0;
+  left: 0;
+}
+
+.corner-decor.top-left::before {
+  top: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+}
+
+.corner-decor.top-left::after {
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 60px;
+}
+
+.corner-decor.top-right {
+  top: 0;
+  right: 0;
+}
+
+.corner-decor.top-right::before {
+  top: 0;
+  right: 0;
+  width: 60px;
+  height: 3px;
+}
+
+.corner-decor.top-right::after {
+  top: 0;
+  right: 0;
+  width: 3px;
+  height: 60px;
+}
+
+.corner-decor.bottom-left {
+  bottom: 0;
+  left: 0;
+}
+
+.corner-decor.bottom-left::before {
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+}
+
+.corner-decor.bottom-left::after {
+  bottom: 0;
+  left: 0;
+  width: 3px;
+  height: 60px;
+}
+
+.corner-decor.bottom-right {
+  bottom: 0;
+  right: 0;
+}
+
+.corner-decor.bottom-right::before {
+  bottom: 0;
+  right: 0;
+  width: 60px;
+  height: 3px;
+}
+
+.corner-decor.bottom-right::after {
+  bottom: 0;
+  right: 0;
+  width: 3px;
+  height: 60px;
+}

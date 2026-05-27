@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1920, height=1080">
+  <title>Alerts Overlay</title>
+  <link rel="stylesheet" href="/css/common.css">
+  <link rel="stylesheet" href="/css/alerts.css">
+  <link id="theme-stylesheet" rel="stylesheet" href="/css/themes/gaming.css">
+</head>
+<body>
+  <div class="alert-container">
+
+    <!-- Particles Layer -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Alert Box -->
+    <div class="alert-box hidden" id="alert-box">
+      <div class="alert-content">
+        <span class="alert-platform" id="alert-platform">twitch</span>
+        <div class="alert-icon" id="alert-icon">❤️</div>
+        <div class="alert-title" id="alert-title">Novo Seguidor!</div>
+        <div class="alert-message" id="alert-message">
+          <span class="username">Username</span> acabou de seguir!
+        </div>
+        <div class="alert-submessage" id="alert-submessage"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="/js/ws-client.js"></script>
+  <script src="/js/alerts.js"></script>
+</body>
+</html>

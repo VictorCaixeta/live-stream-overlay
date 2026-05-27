@@ -1,0 +1,108 @@
+{
+  "streamer": {
+    "name": "StreamerName",
+    "title": "Live Stream",
+    "socialMedia": {
+      "twitter": "@streamer",
+      "instagram": "@streamer",
+      "discord": "discord.gg/streamer",
+      "tiktok": "@streamer"
+    }
+  },
+  "theme": "gaming",
+  "colors": {
+    "primary": "#6441a5",
+    "secondary": "#00d4aa",
+    "accent": "#ff6b6b",
+    "background": "#0e0e10",
+    "text": "#efeff1",
+    "chatBg": "rgba(14, 14, 16, 0.85)",
+    "alertBg": "rgba(100, 65, 165, 0.9)"
+  },
+  "overlay": {
+    "showWebcamFrame": true,
+    "webcamPosition": "bottom-left",
+    "webcamSize": { "width": 420, "height": 236 },
+    "showTopBar": true,
+    "showBottomBar": true,
+    "showSocialBar": true
+  },
+  "alerts": {
+    "enabled": true,
+    "duration": 5000,
+    "volume": 0.5,
+    "follower": {
+      "enabled": true,
+      "message": "Novo seguidor!",
+      "template": "{username} acabou de seguir!"
+    },
+    "subscription": {
+      "enabled": true,
+      "message": "Nova inscrição!",
+      "template": "{username} se inscreveu por {months} mês(es)!"
+    },
+    "donation": {
+      "enabled": true,
+      "message": "Doação recebida!",
+      "template": "{username} doou {currency} {amount}!"
+    },
+    "raid": {
+      "enabled": true,
+      "message": "RAID!",
+      "template": "{username} está fazendo raid com {viewers} viewers!"
+    }
+  },
+  "widgets": {
+    "viewerCount": { "enabled": true, "position": "top-right" },
+    "goalBar": {
+      "enabled": true,
+      "title": "Meta de Seguidores",
+      "current": 0,
+      "target": 100,
+      "type": "followers"
+    },
+    "latestFollower": { "enabled": true },
+    "latestSub": { "enabled": true },
+    "latestDonation": { "enabled": true },
+    "topDonor": { "enabled": true }
+  },
+  "chat": {
+    "maxMessages": 50,
+    "fontSize": 14,
+    "showTimestamp": false,
+    "showBadges": true,
+    "showPlatformIcon": true,
+    "fadeMessages": true,
+    "fadeDelay": 60,
+    "filters": {
+      "twitch": true,
+      "youtube": true,
+      "kick": true
+    },
+    "blockedWords": [],
+    "blockedUsers": []
+  },
+  "platforms": {
+    "twitch": {
+      "enabled": false,
+      "autoConnect": false,
+      "channel": "",
+      "oauthToken": "",
+      "clientId": "",
+      "botUsername": ""
+    },
+    "youtube": {
+      "enabled": false,
+      "autoConnect": false,
+      "apiKey": "",
+      "channelId": "",
+      "videoId": "",
+      "pollRate": 5000
+    },
+    "kick": {
+      "enabled": false,
+      "autoConnect": false,
+      "channel": ""
+    }
+  }
+}

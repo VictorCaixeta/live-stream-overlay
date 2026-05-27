@@ -1,0 +1,160 @@
+/* ============================================
+   LIVE STREAM OVERLAY - Common Styles
+   ============================================ */
+
+:root {
+  --color-primary: #6441a5;
+  --color-secondary: #00d4aa;
+  --color-accent: #ff6b6b;
+  --color-bg: #0e0e10;
+  --color-text: #efeff1;
+  --color-chat-bg: rgba(14, 14, 16, 0.85);
+  --color-alert-bg: rgba(100, 65, 165, 0.9);
+
+  --color-twitch: #9147ff;
+  --color-youtube: #ff0000;
+  --color-kick: #53fc18;
+
+  --font-main: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  --font-heading: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+
+  --border-radius: 8px;
+  --transition-speed: 0.3s;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  color: var(--color-text);
+  background: transparent;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Platform Icons (CSS-only) */
+.platform-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 3px;
+  font-size: 10px;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.platform-icon.twitch {
+  background: var(--color-twitch);
+}
+
+.platform-icon.youtube {
+  background: var(--color-youtube);
+}
+
+.platform-icon.kick {
+  background: var(--color-kick);
+  color: #000;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes slideInLeft {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInTop {
+  from { transform: translateY(-100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideInBottom {
+  from { transform: translateY(100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes bounceIn {
+  0% { transform: scale(0); }
+  50% { transform: scale(1.15); }
+  70% { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 5px var(--color-primary), 0 0 10px var(--color-primary); }
+  50% { box-shadow: 0 0 10px var(--color-primary), 0 0 20px var(--color-primary), 0 0 30px var(--color-primary); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes progressFill {
+  from { width: 0%; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+  20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+.animate-fade-in { animation: fadeIn 0.5s ease-out; }
+.animate-slide-left { animation: slideInLeft 0.5s ease-out; }
+.animate-slide-right { animation: slideInRight 0.5s ease-out; }
+.animate-slide-top { animation: slideInTop 0.5s ease-out; }
+.animate-slide-bottom { animation: slideInBottom 0.5s ease-out; }
+.animate-scale { animation: scaleIn 0.5s ease-out; }
+.animate-bounce { animation: bounceIn 0.6s ease-out; }

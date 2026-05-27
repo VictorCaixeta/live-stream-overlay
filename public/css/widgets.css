@@ -1,0 +1,242 @@
+/* ============================================
+   Widget Styles
+   ============================================ */
+
+.widgets-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* --- Generic Widget Card --- */
+.widget {
+  position: absolute;
+  background: var(--color-chat-bg);
+  border: 2px solid var(--color-primary);
+  border-radius: var(--border-radius);
+  padding: 12px 16px;
+  backdrop-filter: blur(10px);
+  animation: fadeIn 0.5s ease-out;
+}
+
+.widget-title {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  opacity: 0.6;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.widget-value {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.widget-sub {
+  font-size: 12px;
+  opacity: 0.6;
+  margin-top: 2px;
+}
+
+/* --- Viewer Count Widget --- */
+.widget-viewers {
+  min-width: 160px;
+}
+
+.viewer-count {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.viewer-count .count-number {
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.viewer-count .live-dot {
+  width: 8px;
+  height: 8px;
+}
+
+.viewer-breakdown {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+  font-size: 12px;
+}
+
+.viewer-platform {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* --- Goal Bar Widget --- */
+.widget-goal {
+  min-width: 280px;
+}
+
+.goal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.goal-title {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.goal-numbers {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-secondary);
+}
+
+.goal-bar {
+  height: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.goal-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  border-radius: 10px;
+  transition: width 0.8s ease-out;
+  position: relative;
+  min-width: 0;
+}
+
+.goal-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: shimmer 2s ease-in-out infinite;
+  background-size: 200% 100%;
+}
+
+.goal-percentage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 11px;
+  font-weight: 700;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* --- Info Widgets (Latest Follower, Sub, Donation, Top Donor) --- */
+.widget-info {
+  min-width: 200px;
+}
+
+.info-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.info-icon {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.info-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.info-name {
+  font-size: 16px;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.info-extra {
+  font-size: 12px;
+  opacity: 0.6;
+}
+
+/* --- Widget Positions --- */
+.widget.pos-top-right {
+  top: 60px;
+  right: 20px;
+}
+
+.widget.pos-top-left {
+  top: 60px;
+  left: 20px;
+}
+
+.widget.pos-top-center {
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.widget.pos-bottom-right {
+  bottom: 60px;
+  right: 20px;
+}
+
+.widget.pos-bottom-left {
+  bottom: 60px;
+  left: 20px;
+}
+
+.widget.pos-right-stack-1 { top: 60px; right: 20px; }
+.widget.pos-right-stack-2 { top: 140px; right: 20px; }
+.widget.pos-right-stack-3 { top: 220px; right: 20px; }
+.widget.pos-right-stack-4 { top: 300px; right: 20px; }
+.widget.pos-right-stack-5 { top: 380px; right: 20px; }
+
+/* --- Session Stats --- */
+.widget-stats {
+  min-width: 200px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--color-secondary);
+}
+
+.stat-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  opacity: 0.5;
+  letter-spacing: 1px;
+}
+
+/* --- Update Animation --- */
+.widget-updated {
+  animation: widgetPulse 0.5s ease-out;
+}
+
+@keyframes widgetPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); border-color: var(--color-secondary); }
+  100% { transform: scale(1); }
+}

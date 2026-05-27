@@ -1,0 +1,208 @@
+/* ============================================
+   Alert System Styles
+   ============================================ */
+
+.alert-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* --- Alert Box --- */
+.alert-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  max-width: 600px;
+  width: 90%;
+  pointer-events: none;
+}
+
+.alert-box.hidden {
+  display: none;
+}
+
+.alert-content {
+  background: var(--color-alert-bg);
+  border: 2px solid var(--color-primary);
+  border-radius: 12px;
+  padding: 32px 40px;
+  box-shadow: 0 0 30px rgba(100, 65, 165, 0.5), 0 0 60px rgba(100, 65, 165, 0.2);
+  backdrop-filter: blur(20px);
+  position: relative;
+  overflow: hidden;
+}
+
+.alert-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+/* --- Alert Icon --- */
+.alert-icon {
+  font-size: 48px;
+  margin-bottom: 12px;
+  animation: bounceIn 0.6s ease-out;
+}
+
+/* --- Alert Title --- */
+.alert-title {
+  font-size: 24px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--color-secondary);
+  margin-bottom: 8px;
+  text-shadow: 0 0 10px var(--color-secondary);
+}
+
+/* --- Alert Message --- */
+.alert-message {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.alert-message .username {
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+/* --- Alert Sub-message --- */
+.alert-submessage {
+  font-size: 15px;
+  opacity: 0.8;
+  font-style: italic;
+  margin-top: 8px;
+}
+
+/* --- Alert Platform Badge --- */
+.alert-platform {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.alert-platform.twitch { background: var(--color-twitch); }
+.alert-platform.youtube { background: var(--color-youtube); }
+.alert-platform.kick { background: var(--color-kick); color: #000; }
+
+/* --- Alert Animations --- */
+.alert-enter {
+  animation: alertEnter 0.6s ease-out forwards;
+}
+
+.alert-exit {
+  animation: alertExit 0.5s ease-in forwards;
+}
+
+@keyframes alertEnter {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.3) rotate(-5deg);
+  }
+  60% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.1) rotate(1deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) rotate(0);
+  }
+}
+
+@keyframes alertExit {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5) translateY(-30px);
+  }
+}
+
+/* --- Particle Effects --- */
+.particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  animation: particleFly 2s ease-out forwards;
+}
+
+@keyframes particleFly {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--tx), var(--ty)) scale(0);
+  }
+}
+
+/* --- Follower Alert --- */
+.alert-follower .alert-content {
+  border-color: var(--color-secondary);
+}
+
+.alert-follower .alert-title {
+  color: var(--color-secondary);
+}
+
+/* --- Subscription Alert --- */
+.alert-subscription .alert-content {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 30px rgba(100, 65, 165, 0.6);
+}
+
+/* --- Donation Alert --- */
+.alert-donation .alert-content {
+  border-color: #ffca28;
+  box-shadow: 0 0 30px rgba(255, 202, 40, 0.5);
+}
+
+.alert-donation .alert-title {
+  color: #ffca28;
+  text-shadow: 0 0 10px #ffca28;
+}
+
+/* --- Raid Alert --- */
+.alert-raid .alert-content {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 40px rgba(255, 107, 107, 0.5);
+}
+
+.alert-raid .alert-title {
+  color: var(--color-accent);
+  text-shadow: 0 0 10px var(--color-accent);
+}
+
+.alert-raid .alert-content {
+  animation: shake 0.5s ease-out;
+}
