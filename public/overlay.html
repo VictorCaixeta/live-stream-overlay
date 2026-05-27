@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1920, height=1080">
+  <title>Live Stream Overlay</title>
+  <link rel="stylesheet" href="/css/common.css">
+  <link rel="stylesheet" href="/css/overlay.css">
+  <link id="theme-stylesheet" rel="stylesheet" href="/css/themes/gaming.css">
+</head>
+<body>
+  <div class="overlay-container">
+
+    <!-- Corner Decorations -->
+    <div class="corner-decor top-left"></div>
+    <div class="corner-decor top-right"></div>
+    <div class="corner-decor bottom-left"></div>
+    <div class="corner-decor bottom-right"></div>
+
+    <!-- Top Bar -->
+    <div class="top-bar" id="top-bar">
+      <div>
+        <span class="streamer-name" id="streamer-name">StreamerName</span>
+        <span class="stream-title" id="stream-title"></span>
+      </div>
+      <div class="live-indicator">
+        <span class="live-dot"></span>
+        <span>AO VIVO</span>
+      </div>
+    </div>
+
+    <!-- Webcam Frame -->
+    <div class="webcam-frame bottom-left" id="webcam-frame" style="width: 420px; height: 236px;">
+      <div class="webcam-inner">Webcam</div>
+      <div class="name-tag">
+        <div class="name" id="webcam-name">StreamerName</div>
+      </div>
+    </div>
+
+    <!-- Social Bar -->
+    <div class="social-bar middle-left" id="social-bar">
+      <div id="social-items">
+        <div class="social-item"><span class="social-icon">𝕏</span><span>@streamer</span></div>
+        <div class="social-item"><span class="social-icon">📷</span><span>@streamer</span></div>
+        <div class="social-item"><span class="social-icon">💬</span><span>discord.gg/streamer</span></div>
+      </div>
+    </div>
+
+    <!-- Bottom Bar / Ticker -->
+    <div class="bottom-bar" id="bottom-bar">
+      <div class="ticker-wrap">
+        <div class="ticker">
+          <div class="ticker-item"><span class="label">TWITCH</span> <span>/streamer</span></div>
+          <div class="ticker-item"><span class="label">YOUTUBE</span> <span>/streamer</span></div>
+          <div class="ticker-item"><span class="label">KICK</span> <span>/streamer</span></div>
+          <div class="ticker-item"><span class="label">TWITTER</span> <span>@streamer</span></div>
+          <div class="ticker-item"><span class="label">INSTAGRAM</span> <span>@streamer</span></div>
+          <div class="ticker-item"><span class="label">TWITCH</span> <span>/streamer</span></div>
+          <div class="ticker-item"><span class="label">YOUTUBE</span> <span>/streamer</span></div>
+          <div class="ticker-item"><span class="label">KICK</span> <span>/streamer</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="/js/ws-client.js"></script>
+  <script src="/js/overlay.js"></script>
+</body>
+</html>

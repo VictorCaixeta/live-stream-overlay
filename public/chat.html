@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=400, height=600">
+  <title>Unified Chat</title>
+  <link rel="stylesheet" href="/css/common.css">
+  <link rel="stylesheet" href="/css/chat.css">
+  <link id="theme-stylesheet" rel="stylesheet" href="/css/themes/gaming.css">
+  <style>
+    html, body {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="chat-container">
+
+    <!-- Chat Header -->
+    <div class="chat-header">
+      <span class="title">💬 Chat Unificado</span>
+      <div class="chat-filters">
+        <button class="filter-btn twitch active" data-platform="twitch" title="Twitch">TW</button>
+        <button class="filter-btn youtube active" data-platform="youtube" title="YouTube">YT</button>
+        <button class="filter-btn kick active" data-platform="kick" title="Kick">KK</button>
+      </div>
+    </div>
+
+    <!-- Messages -->
+    <div class="chat-messages" id="chat-messages">
+      <div class="chat-empty" id="chat-empty">
+        Conecte às plataformas para ver as mensagens aqui
+      </div>
+    </div>
+
+  </div>
+
+  <script src="/js/ws-client.js"></script>
+  <script src="/js/chat.js"></script>
+</body>
+</html>

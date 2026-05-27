@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1920, height=1080">
+  <title>Stream Widgets</title>
+  <link rel="stylesheet" href="/css/common.css">
+  <link rel="stylesheet" href="/css/widgets.css">
+  <link id="theme-stylesheet" rel="stylesheet" href="/css/themes/gaming.css">
+</head>
+<body>
+  <div class="widgets-container">
+
+    <!-- Viewer Count -->
+    <div class="widget widget-viewers pos-right-stack-1" id="widget-viewers">
+      <div class="widget-title">Viewers</div>
+      <div class="viewer-count">
+        <span class="live-dot"></span>
+        <span class="count-number" id="viewer-total">0</span>
+      </div>
+      <div class="viewer-breakdown">
+        <div class="viewer-platform">
+          <span class="platform-icon twitch">TW</span>
+          <span id="viewer-twitch">0</span>
+        </div>
+        <div class="viewer-platform">
+          <span class="platform-icon youtube">YT</span>
+          <span id="viewer-youtube">0</span>
+        </div>
+        <div class="viewer-platform">
+          <span class="platform-icon kick">KK</span>
+          <span id="viewer-kick">0</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Goal Bar -->
+    <div class="widget widget-goal pos-right-stack-2" id="widget-goal">
+      <div class="goal-header">
+        <span class="goal-title" id="goal-title">Meta de Seguidores</span>
+        <span class="goal-numbers">
+          <span id="goal-current">0</span> / <span id="goal-target">100</span>
+        </span>
+      </div>
+      <div class="goal-bar">
+        <div class="goal-fill" id="goal-fill" style="width: 0%"></div>
+        <span class="goal-percentage" id="goal-percentage">0%</span>
+      </div>
+    </div>
+
+    <!-- Latest Follower -->
+    <div class="widget widget-info pos-right-stack-3" id="widget-follower">
+      <div class="widget-title">Último Seguidor</div>
+      <div class="info-content">
+        <span class="info-icon">❤️</span>
+        <div class="info-details">
+          <div class="info-name" id="follower-name">---</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Latest Subscriber -->
+    <div class="widget widget-info pos-right-stack-4" id="widget-sub">
+      <div class="widget-title">Última Inscrição</div>
+      <div class="info-content">
+        <span class="info-icon">⭐</span>
+        <div class="info-details">
+          <div class="info-name" id="sub-name">---</div>
+          <div class="info-extra" id="sub-extra"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Latest Donation -->
+    <div class="widget widget-info pos-right-stack-5" id="widget-donation">
+      <div class="widget-title">Última Doação</div>
+      <div class="info-content">
+        <span class="info-icon">💰</span>
+        <div class="info-details">
+          <div class="info-name" id="donation-name">---</div>
+          <div class="info-extra" id="donation-extra"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Top Donor -->
+    <div class="widget widget-info pos-top-left" id="widget-top-donor">
+      <div class="widget-title">Top Doador</div>
+      <div class="info-content">
+        <span class="info-icon">👑</span>
+        <div class="info-details">
+          <div class="info-name" id="top-donor-name">---</div>
+          <div class="info-extra" id="top-donor-extra"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Session Stats -->
+    <div class="widget widget-stats pos-bottom-right" id="widget-stats">
+      <div class="widget-title">Sessão</div>
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number" id="stat-followers">0</div>
+          <div class="stat-label">Seguidores</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" id="stat-subs">0</div>
+          <div class="stat-label">Inscrições</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" id="stat-donations">$0.00</div>
+          <div class="stat-label">Doações</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="/js/ws-client.js"></script>
+  <script src="/js/widgets.js"></script>
+</body>
+</html>

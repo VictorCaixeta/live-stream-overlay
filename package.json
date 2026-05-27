@@ -1,0 +1,27 @@
+{
+  "name": "live-stream-overlay",
+  "version": "1.0.0",
+  "description": "Professional streaming overlay system with Twitch, YouTube and Kick integrations",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node server/index.js --dev"
+  },
+  "keywords": [
+    "streaming",
+    "overlay",
+    "obs",
+    "twitch",
+    "youtube",
+    "kick",
+    "chat"
+  ],
+  "author": "VictorCaixeta",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "ws": "^8.16.0",
+    "tmi.js": "^1.8.5",
+    "node-fetch": "^2.7.0"
+  }
+}

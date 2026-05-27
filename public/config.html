@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel de Configuração - Live Stream Overlay</title>
+  <link rel="stylesheet" href="/css/config.css">
+</head>
+<body>
+  <div class="config-layout">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <h1>🎮 Stream Overlay</h1>
+        <p>Painel de Configuração</p>
+      </div>
+      <ul class="sidebar-nav">
+        <li><a href="#" class="active" data-section="general"><span class="icon">⚙️</span> Geral</a></li>
+        <li><a href="#" data-section="themes"><span class="icon">🎨</span> Temas</a></li>
+        <li><a href="#" data-section="colors"><span class="icon">🖌️</span> Cores</a></li>
+        <li><a href="#" data-section="overlay"><span class="icon">📺</span> Overlay</a></li>
+        <li><a href="#" data-section="alerts"><span class="icon">🔔</span> Alertas</a></li>
+        <li><a href="#" data-section="widgets"><span class="icon">📊</span> Widgets</a></li>
+        <li><a href="#" data-section="chat"><span class="icon">💬</span> Chat</a></li>
+        <li><a href="#" data-section="platforms"><span class="icon">🔗</span> Plataformas</a></li>
+        <li><a href="#" data-section="obs"><span class="icon">🖥️</span> OBS URLs</a></li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+      <!-- ======== GENERAL ======== -->
+      <div class="config-section active" id="section-general">
+        <h2 class="section-title">Configurações Gerais</h2>
+        <p class="section-desc">Informações do streamer e redes sociais</p>
+
+        <div class="card">
+          <div class="card-title">👤 Informações do Streamer</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Nome do Streamer</label>
+              <input type="text" id="cfg-streamer-name" placeholder="Seu nome">
+            </div>
+            <div class="form-group">
+              <label>Título da Stream</label>
+              <input type="text" id="cfg-stream-title" placeholder="Título da live">
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">🌐 Redes Sociais</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Twitter / X</label>
+              <input type="text" id="cfg-social-twitter" placeholder="@usuario">
+            </div>
+            <div class="form-group">
+              <label>Instagram</label>
+              <input type="text" id="cfg-social-instagram" placeholder="@usuario">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Discord</label>
+              <input type="text" id="cfg-social-discord" placeholder="discord.gg/servidor">
+            </div>
+            <div class="form-group">
+              <label>TikTok</label>
+              <input type="text" id="cfg-social-tiktok" placeholder="@usuario">
+            </div>
+          </div>
+        </div>
+
+        <div class="btn-group">
+          <button class="btn btn-primary" onclick="saveConfig()">💾 Salvar</button>
+          <button class="btn btn-outline" onclick="resetConfig()">🔄 Restaurar Padrão</button>
+        </div>
+      </div>
+
+      <!-- ======== THEMES ======== -->
+      <div class="config-section" id="section-themes">
+        <h2 class="section-title">Temas</h2>
+        <p class="section-desc">Escolha um template visual para seus overlays</p>
+
+        <div class="theme-grid">
+          <div class="theme-card active" data-theme="gaming" onclick="selectTheme('gaming')">
+            <div class="theme-preview theme-preview-gaming"></div>
+            <div class="theme-name">Gaming</div>
+            <div class="theme-desc">Bold, angular, energético</div>
+          </div>
+          <div class="theme-card" data-theme="neon" onclick="selectTheme('neon')">
+            <div class="theme-preview theme-preview-neon"></div>
+            <div class="theme-name">Neon Cyberpunk</div>
+            <div class="theme-desc">Neon brilhante, futurístico</div>
+          </div>
+          <div class="theme-card" data-theme="minimal" onclick="selectTheme('minimal')">
+            <div class="theme-preview theme-preview-minimal"></div>
+            <div class="theme-name">Minimal Clean</div>
+            <div class="theme-desc">Simples, elegante, sutil</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ======== COLORS ======== -->
+      <div class="config-section" id="section-colors">
+        <h2 class="section-title">Cores</h2>
+        <p class="section-desc">Personalize as cores do overlay</p>
+
+        <div class="card">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Cor Primária</label>
+              <div class="color-input-group">
+                <input type="color" id="cfg-color-primary" value="#6441a5">
+                <input type="text" id="cfg-color-primary-text" value="#6441a5" placeholder="#hex">
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Cor Secundária</label>
+              <div class="color-input-group">
+                <input type="color" id="cfg-color-secondary" value="#00d4aa">
+                <input type="text" id="cfg-color-secondary-text" value="#00d4aa" placeholder="#hex">
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Cor de Destaque</label>
+              <div class="color-input-group">
+                <input type="color" id="cfg-color-accent" value="#ff6b6b">
+                <input type="text" id="cfg-color-accent-text" value="#ff6b6b" placeholder="#hex">
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Cor do Texto</label>
+              <div class="color-input-group">
+                <input type="color" id="cfg-color-text" value="#efeff1">
+                <input type="text" id="cfg-color-text-text" value="#efeff1" placeholder="#hex">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="btn-group">
+          <button class="btn btn-primary" onclick="saveConfig()">💾 Salvar Cores</button>
+        </div>
+      </div>
+
+      <!-- ======== OVERLAY ======== -->
+      <div class="config-section" id="section-overlay">
+        <h2 class="section-title">Overlay Principal</h2>
+        <p class="section-desc">Configure o layout do overlay principal</p>
+
+        <div class="card">
+          <div class="card-title">📐 Layout</div>
+          <div class="toggle-group">
+            <div>
+              <div class="toggle-label">Moldura da Webcam</div>
+              <div class="toggle-desc">Exibir moldura decorativa ao redor da webcam</div>
+            </div>
+            <label class="toggle">
+              <input type="checkbox" id="cfg-webcam-frame" checked>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <div class="toggle-group">
+            <div>
+              <div class="toggle-label">Barra Superior</div>
+              <div class="toggle-desc">Nome do streamer e indicador ao vivo</div>
+            </div>
+            <label class="toggle">
+              <input type="checkbox" id="cfg-top-bar" checked>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <div class="toggle-group">
+            <div>
+              <div class="toggle-label">Barra Inferior</div>
+              <div class="toggle-desc">Ticker com redes sociais</div>
+            </div>
+            <label class="toggle">
+              <input type="checkbox" id="cfg-bottom-bar" checked>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <div class="toggle-group">
+            <div>
+              <div class="toggle-label">Barra Social</div>
+              <div class="toggle-desc">Links de redes sociais na lateral</div>
+            </div>
+            <label class="toggle">
+              <input type="checkbox" id="cfg-social-bar" checked>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">📷 Webcam</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Posição</label>
+              <select id="cfg-webcam-position">
+                <option value="bottom-left">Inferior Esquerdo</option>
+                <option value="bottom-right">Inferior Direito</option>
+                <option value="top-left">Superior Esquerdo</option>
+                <option value="top-right">Superior Direito</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Largura (px)</label>
+              <input type="number" id="cfg-webcam-width" value="420" min="200" max="800">
+            </div>
+            <div class="form-group">
+              <label>Altura (px)</label>
+              <input type="number" id="cfg-webcam-height" value="236" min="100" max="600">
+            </div>
+          </div>
+        </div>
+
+        <div class="btn-group">
+          <button class="btn btn-primary" onclick="saveConfig()">💾 Salvar</button>
+        </div>
+      </div>
+
+      <!-- ======== ALERTS ======== -->
+      <div class="config-section" id="section-alerts">
+        <h2 class="section-title">Sistema de Alertas</h2>
+        <p class="section-desc">Configure alertas para eventos da stream</p>
+
+        <div class="card">
+          <div class="card-title">🔔 Configurações Gerais</div>
+          <div class="toggle-group">
+            <div>
+              <div class="toggle-label">Alertas Ativados</div>
+            </div>
+            <label class="toggle">
+              <input type="checkbox" id="cfg-alerts-enabled" checked>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Duração (ms)</label>
+              <input type="number" id="cfg-alert-duration" value="5000" min="1000" max="30000" step="500">
+            </div>
+            <div class="form-group">
+              <label>Volume</label>
+              <input type="number" id="cfg-alert-volume" value="0.5" min="0" max="1" step="0.1">
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">❤️ Novos Seguidores</div>
+          <div class="toggle-group">
+            <div><div class="toggle-label">Ativado</div></div>
+            <label class="toggle">
+              <input type="checkbox" id="cfg-alert-follower-enabled" checked>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Título</label>
+            <input type="text" id="cfg-alert-follower-message" value="Novo seguidor!">
+          </div>
+          <div class="form-group">
+            <label>Template (use {username})</label>
+            <input type="text" id="cfg-alert-follower-template" value="{username} acabou de seguir!">
+          </div>
+          <button class="btn btn-sm btn-outline" onclick="testAlert('follower')">▶ Testar</button>
+        </div>
+
+        <div class="card">
+          <div class="card-title">⭐ Inscrições</div>
+          <div class="toggle-group">
+            <div><div class="toggle-label">Ativado</div></div>
+            <label class="toggle">
+              <input type="checkbox" id="cfg-alert-sub-enabled" checked>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Título</label>
+            <input type="text" id="cfg-alert-sub-message" value="Nova inscrição!">
+          </div>
+          <div class="form-group">
+            <label>Template (use {username}, {months}, {tier})</label>
+            <input type="text" id="cfg-alert-sub-template" value="{username} se inscreveu por {months} mês(es)!">
+          </div>
+          <button class="btn btn-sm btn-outline" onclick="testAlert('subscription')">▶ Testar</button>
+        </div>
+
+        <div class="card">
+          <div class="card-title">💰 Doações</div>
+          <div class="toggle-group">
+            <div><div class="toggle-label">Ativado</div></div>
+            <label class="toggle">
+              <input type="checkbox" id="cfg-alert-donation-enabled" checked>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Título</label>
+            <input type="text" id="cfg-alert-donation-message" value="Doação recebida!">
+          </div>
+          <div class="form-group">
+            <label>Template (use {username}, {amount}, {currency})</label>
+            <input type="text" id="cfg-alert-donation-template" value="{username} doou {currency} {amount}!">
+          </div>
+          <button class="btn btn-sm btn-outline" onclick="testAlert('donation')">▶ Testar</button>
+        </div>
+
+        <div class="card">
+          <div class="card-title">⚔️ Raids</div>
+          <div class="toggle-group">
+            <div><div class="toggle-label">Ativado</div></div>
+            <label class="toggle">
+              <input type="checkbox" id="cfg-alert-raid-enabled" checked>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Título</label>
+            <input type="text" id="cfg-alert-raid-message" value="RAID!">
+          </div>
+          <div class="form-group">
+            <label>Template (use {username}, {viewers})</label>
+            <input type="text" id="cfg-alert-raid-template" value="{username} está fazendo raid com {viewers} viewers!">
+          </div>
+          <button class="btn btn-sm btn-outline" onclick="testAlert('raid')">▶ Testar</button>
+        </div>
+      </div>
+
+      <!-- ======== WIDGETS ======== -->
+      <div class="config-section" id="section-widgets">
+        <h2 class="section-title">Widgets</h2>
+        <p class="section-desc">Configure os widgets do overlay</p>
+
+        <div class="card">
+          <div class="toggle-group">
+            <div>
+              <div class="toggle-label">👁️ Contador de Viewers</div>
+              <div class="toggle-desc">Mostra viewers combinados de todas as plataformas</div>
+            </div>
+            <label class="toggle">
+              <input type="checkbox" id="cfg-widget-viewers" checked>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <div class="toggle-group">
+            <div>
+              <div class="toggle-label">❤️ Último Seguidor</div>
+            </div>
+            <label class="toggle">
+              <input type="checkbox" id="cfg-widget-follower" checked>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <div class="toggle-group">
+            <div>
+              <div class="toggle-label">⭐ Última Inscrição</div>
+            </div>
+            <label class="toggle">
+              <input type="checkbox" id="cfg-widget-sub" checked>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <div class="toggle-group">
+            <div>
+              <div class="toggle-label">💰 Última Doação</div>
+            </div>
+            <label class="toggle">
+              <input type="checkbox" id="cfg-widget-donation" checked>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <div class="toggle-group">
+            <div>
+              <div class="toggle-label">👑 Top Doador</div>
+            </div>
+            <label class="toggle">
+              <input type="checkbox" id="cfg-widget-top-donor" checked>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">🎯 Barra de Meta</div>
+          <div class="toggle-group">
+            <div><div class="toggle-label">Ativada</div></div>
+            <label class="toggle">
+              <input type="checkbox" id="cfg-widget-goal" checked>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Título da Meta</label>
+            <input type="text" id="cfg-goal-title" value="Meta de Seguidores">
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Tipo</label>
+              <select id="cfg-goal-type">
+                <option value="followers">Seguidores</option>
+                <option value="subscribers">Inscrições</option>
+                <option value="donations">Doações ($)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Meta</label>
+              <input type="number" id="cfg-goal-target" value="100" min="1">
+            </div>
+          </div>
+        </div>
+
+        <div class="btn-group">
+          <button class="btn btn-primary" onclick="saveConfig()">💾 Salvar</button>
+        </div>
+      </div>
+
+      <!-- ======== CHAT ======== -->
+      <div class="config-section" id="section-chat">
+        <h2 class="section-title">Chat Unificado</h2>
+        <p class="section-desc">Configure o chat integrado</p>
+
+        <div class="card">
+          <div class="card-title">💬 Configurações do Chat</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Máximo de Mensagens</label>
+              <input type="number" id="cfg-chat-max" value="50" min="10" max="200">
+            </div>
+            <div class="form-group">
+              <label>Tamanho da Fonte (px)</label>
+              <input type="number" id="cfg-chat-font-size" value="14" min="10" max="24">
+            </div>
+          </div>
+
+          <div class="toggle-group">
+            <div><div class="toggle-label">Mostrar Timestamp</div></div>
+            <label class="toggle">
+              <input type="checkbox" id="cfg-chat-timestamp">
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <div class="toggle-group">
+            <div><div class="toggle-label">Mostrar Badges</div></div>
+            <label class="toggle">
+              <input type="checkbox" id="cfg-chat-badges" checked>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <div class="toggle-group">
+            <div><div class="toggle-label">Ícone da Plataforma</div></div>
+            <label class="toggle">
+              <input type="checkbox" id="cfg-chat-platform-icon" checked>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <div class="toggle-group">
+            <div>
+              <div class="toggle-label">Fade de Mensagens</div>
+              <div class="toggle-desc">Mensagens desaparecem após um tempo</div>
+            </div>
+            <label class="toggle">
+              <input type="checkbox" id="cfg-chat-fade" checked>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Tempo de Fade (segundos)</label>
+            <input type="number" id="cfg-chat-fade-delay" value="60" min="5" max="600">
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">🚫 Filtros</div>
+          <div class="toggle-group">
+            <div><div class="toggle-label">Mostrar Twitch</div></div>
+            <label class="toggle">
+              <input type="checkbox" id="cfg-chat-filter-twitch" checked>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <div class="toggle-group">
+            <div><div class="toggle-label">Mostrar YouTube</div></div>
+            <label class="toggle">
+              <input type="checkbox" id="cfg-chat-filter-youtube" checked>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <div class="toggle-group">
+            <div><div class="toggle-label">Mostrar Kick</div></div>
+            <label class="toggle">
+              <input type="checkbox" id="cfg-chat-filter-kick" checked>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="btn-group">
+          <button class="btn btn-primary" onclick="saveConfig()">💾 Salvar</button>
+        </div>
+      </div>
+
+      <!-- ======== PLATFORMS ======== -->
+      <div class="config-section" id="section-platforms">
+        <h2 class="section-title">Integrações</h2>
+        <p class="section-desc">Conecte suas contas de streaming</p>
+
+        <!-- Twitch -->
+        <div class="card platform-card twitch">
+          <div class="card-title">
+            <span style="color: #9147ff;">●</span> Twitch
+            <span class="connection-status status-disconnected" id="status-twitch">
+              <span class="status-dot"></span>
+              <span class="status-text">Desconectado</span>
+            </span>
+          </div>
+          <div class="toggle-group">
+            <div><div class="toggle-label">Ativado</div></div>
+            <label class="toggle">
+              <input type="checkbox" id="cfg-twitch-enabled">
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Canal</label>
+            <input type="text" id="cfg-twitch-channel" placeholder="nome_do_canal">
+          </div>
+          <div class="form-group">
+            <label>OAuth Token (opcional para chat autenticado)</label>
+            <input type="password" id="cfg-twitch-token" placeholder="oauth:xxxxxxxxxxxx">
+          </div>
+          <div class="form-group">
+            <label>Client ID (opcional para EventSub)</label>
+            <input type="text" id="cfg-twitch-client-id" placeholder="Client ID do app Twitch">
+          </div>
+          <div class="toggle-group">
+            <div><div class="toggle-label">Auto-conectar</div></div>
+            <label class="toggle">
+              <input type="checkbox" id="cfg-twitch-autoconnect">
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <div class="btn-group">
+            <button class="btn btn-sm btn-success" onclick="connectPlatform('twitch')">Conectar</button>
+            <button class="btn btn-sm btn-outline" onclick="disconnectPlatform('twitch')">Desconectar</button>
+          </div>
+        </div>
+
+        <!-- YouTube -->
+        <div class="card platform-card youtube">
+          <div class="card-title">
+            <span style="color: #ff0000;">●</span> YouTube
+            <span class="connection-status status-disconnected" id="status-youtube">
+              <span class="status-dot"></span>
+              <span class="status-text">Desconectado</span>
+            </span>
+          </div>
+          <div class="toggle-group">
+            <div><div class="toggle-label">Ativado</div></div>
+            <label class="toggle">
+              <input type="checkbox" id="cfg-youtube-enabled">
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>API Key</label>
+            <input type="password" id="cfg-youtube-apikey" placeholder="YouTube Data API v3 Key">
+          </div>
+          <div class="form-group">
+            <label>Channel ID</label>
+            <input type="text" id="cfg-youtube-channel-id" placeholder="UC...">
+          </div>
+          <div class="form-group">
+            <label>Video ID (opcional - para live específica)</label>
+            <input type="text" id="cfg-youtube-video-id" placeholder="ID do vídeo da live">
+          </div>
+          <div class="toggle-group">
+            <div><div class="toggle-label">Auto-conectar</div></div>
+            <label class="toggle">
+              <input type="checkbox" id="cfg-youtube-autoconnect">
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <div class="btn-group">
+            <button class="btn btn-sm btn-success" onclick="connectPlatform('youtube')">Conectar</button>
+            <button class="btn btn-sm btn-outline" onclick="disconnectPlatform('youtube')">Desconectar</button>
+          </div>
+        </div>
+
+        <!-- Kick -->
+        <div class="card platform-card kick">
+          <div class="card-title">
+            <span style="color: #53fc18;">●</span> Kick
+            <span class="connection-status status-disconnected" id="status-kick">
+              <span class="status-dot"></span>
+              <span class="status-text">Desconectado</span>
+            </span>
+          </div>
+          <div class="toggle-group">
+            <div><div class="toggle-label">Ativado</div></div>
+            <label class="toggle">
+              <input type="checkbox" id="cfg-kick-enabled">
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Canal</label>
+            <input type="text" id="cfg-kick-channel" placeholder="nome_do_canal">
+          </div>
+          <div class="toggle-group">
+            <div><div class="toggle-label">Auto-conectar</div></div>
+            <label class="toggle">
+              <input type="checkbox" id="cfg-kick-autoconnect">
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <div class="btn-group">
+            <button class="btn btn-sm btn-success" onclick="connectPlatform('kick')">Conectar</button>
+            <button class="btn btn-sm btn-outline" onclick="disconnectPlatform('kick')">Desconectar</button>
+          </div>
+        </div>
+
+        <div class="btn-group">
+          <button class="btn btn-primary" onclick="saveConfig()">💾 Salvar Configurações</button>
+        </div>
+      </div>
+
+      <!-- ======== OBS URLs ======== -->
+      <div class="config-section" id="section-obs">
+        <h2 class="section-title">URLs para OBS Studio</h2>
+        <p class="section-desc">Adicione estas URLs como Browser Sources no OBS</p>
+
+        <div class="card">
+          <div class="card-title">🖥️ Browser Sources</div>
+          <div class="url-list" id="url-list">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">📖 Como Configurar no OBS</div>
+          <ol style="padding-left: 20px; line-height: 2; font-size: 14px; color: var(--cfg-text-muted);">
+            <li>Abra o OBS Studio</li>
+            <li>Na seção "Fontes", clique em <strong>+</strong> → <strong>Navegador</strong></li>
+            <li>Dê um nome (ex: "Overlay Principal")</li>
+            <li>Cole a URL correspondente no campo URL</li>
+            <li>Para o overlay principal: <strong>Largura: 1920</strong>, <strong>Altura: 1080</strong></li>
+            <li>Para o chat: <strong>Largura: 400</strong>, <strong>Altura: 600</strong></li>
+            <li>Para alertas: <strong>Largura: 1920</strong>, <strong>Altura: 1080</strong></li>
+            <li>Marque "Desligar fonte quando não visível"</li>
+            <li>Clique em OK</li>
+          </ol>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="/js/config.js"></script>
+</body>
+</html>
